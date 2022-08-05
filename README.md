@@ -5,7 +5,7 @@
 
 ### Install
 
-Install the library using npm:
+Install the library using npm: https://www.npmjs.com/package/pinterest-apilib
 ```
 npm i pinterest-apilib
 ```
