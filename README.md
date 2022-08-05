@@ -3,6 +3,13 @@
 
 ## Building
 
+### Install
+
+Install the library using npm:
+```
+npm i pinterest-apilib
+```
+
 ### Requirements
 
 The SDK relies on **Node.js** and **npm** (to resolve dependencies). You can download and install Node.js and [npm](https://www.npmjs.com/) from [the official Node.js website](https://nodejs.org/en/download/).
