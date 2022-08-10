@@ -6,8 +6,9 @@
 
 import { ApiError } from '@apimatic/core';
 import { ApiResponse, RequestOptions } from '../core';
+import { AllBoards, allBoardsSchema } from '../models/allBoards';
+import { Board, boardSchema } from '../models/board';
 import { BoardRequest, boardRequestSchema } from '../models/boardRequest';
-import { NewBoard, newBoardSchema } from '../models/newBoard';
 import { BaseController } from './baseController';
 
 export class BoardsController extends BaseController {
@@ -20,7 +21,7 @@ export class BoardsController extends BaseController {
   async createBoard(
     boardRequest: BoardRequest,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<NewBoard>> {
+  ): Promise<ApiResponse<Board>> {
     const req = this.createRequest('POST', '/boards');
     req.baseUrl('default');
     const mapped = req.prepareArgs({
@@ -28,6 +29,18 @@ export class BoardsController extends BaseController {
     });
     req.json(mapped.boardRequest);
     req.throwOn(400, ApiError, 'The board name is invalid or duplicate.');
-    return req.callAsJson(newBoardSchema, requestOptions);
+    return req.callAsJson(boardSchema, requestOptions);
+  }
+
+  /**
+   * List all Pinterest boards
+   *
+   * @return Response from the API call
+   */
+  async getAllBoards(
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<AllBoards>> {
+    const req = this.createRequest('GET', '/boards');
+    return req.callAsJson(allBoardsSchema, requestOptions);
   }
 }

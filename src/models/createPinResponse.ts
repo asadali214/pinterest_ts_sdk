@@ -5,8 +5,8 @@
  */
 
 import { lazy, object, Schema, string } from '../schema';
-import { BoardOwner, boardOwnerSchema } from './boardOwner';
 import { Media, mediaSchema } from './media';
+import { Owner, ownerSchema } from './owner';
 
 export interface CreatePinResponse {
   id: string;
@@ -18,7 +18,7 @@ export interface CreatePinResponse {
   altText: string;
   boardId: string;
   boardSectionId: string;
-  boardOwner: BoardOwner;
+  boardOwner: Owner;
   media: Media;
   parentPinId: string;
 }
@@ -33,7 +33,7 @@ export const createPinResponseSchema: Schema<CreatePinResponse> = object({
   altText: ['alt_text', string()],
   boardId: ['board_id', string()],
   boardSectionId: ['board_section_id', string()],
-  boardOwner: ['board_owner', lazy(() => boardOwnerSchema)],
+  boardOwner: ['board_owner', lazy(() => ownerSchema)],
   media: ['media', lazy(() => mediaSchema)],
   parentPinId: ['parent_pin_id', string()],
 });

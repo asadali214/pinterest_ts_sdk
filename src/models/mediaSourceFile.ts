@@ -6,8 +6,11 @@
 
 import { object, Schema, string } from '../schema';
 
+/** Type to define media input. */
 export interface MediaSourceFile {
+  /** States the type of the media input. */
   sourceType: string;
+  /** This is the URL of the media. */
   url: string;
 }
 

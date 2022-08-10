@@ -1,6 +1,8 @@
 
 # New Pin
 
+Model to create a new pin.
+
 ## Structure
 
 `NewPin`
@@ -9,18 +11,18 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `id` | `string` | Required | - |
-| `createdAt` | `string` | Required | - |
-| `link` | `string` | Required | - |
-| `title` | `string` | Required | - |
-| `description` | `string` | Required | - |
-| `dominantColor` | `string` | Required | - |
-| `altText` | `string` | Required | - |
-| `boardId` | `string` | Required | - |
-| `boardSectionId` | `string` | Required | - |
-| `boardOwner` | [`BoardOwner`](../../doc/models/board-owner.md) | Required | - |
-| `media` | [`Media`](../../doc/models/media.md) | Required | - |
-| `parentPinId` | `string` | Required | - |
+| `id` | `string` | Required | ID of the new pin. |
+| `createdAt` | `string` | Required | Timestamp at which the pin is created. |
+| `link` | `string` | Required | Link to the created pin. |
+| `title` | `string` | Required | Title of the created pin. |
+| `description` | `string` | Required | Describes what the pin is about. |
+| `dominantColor` | `string` | Required | States the dominant color of the created pin. |
+| `altText` | `string` | Required | ALT text of the created pin. |
+| `boardId` | `string` | Required | This is the board ID of the board in which the pin was created. |
+| `boardSectionId` | `string` | Required | This is the board section ID of the parent board. |
+| `boardOwner` | [`Owner`](../../doc/models/owner.md) | Required | States the owner of the board in which the pin is created. |
+| `media` | [`Media`](../../doc/models/media.md) | Required | Defines the type of media. |
+| `parentPinId` | `string` | Required | This is the ID of parent pin. |
 
 ## Example (as JSON)
 

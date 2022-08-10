@@ -6,7 +6,9 @@
 
 import { object, Schema, string } from '../schema';
 
+/** Model to create an endpoint of type owner. */
 export interface Owner {
+  /** States the name of the board owner. */
   username: string;
 }
 

@@ -18,7 +18,7 @@
 | `altText` | `string` | Required | - |
 | `boardId` | `string` | Required | - |
 | `boardSectionId` | `string` | Required | - |
-| `boardOwner` | [`BoardOwner`](../../doc/models/board-owner.md) | Required | - |
+| `boardOwner` | [`Owner`](../../doc/models/owner.md) | Required | - |
 | `media` | [`Media`](../../doc/models/media.md) | Required | - |
 | `parentPinId` | `string` | Required | - |
 

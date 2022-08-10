@@ -1,6 +1,8 @@
 
 # Media Source File
 
+Type to define media input.
+
 ## Structure
 
 `MediaSourceFile`
@@ -9,8 +11,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `sourceType` | `string` | Required, Constant | **Default**: `'image_url'` |
-| `url` | `string` | Required | - |
+| `sourceType` | `string` | Required, Constant | States the type of the media input.<br>**Default**: `'image_url'` |
+| `url` | `string` | Required | This is the URL of the media. |
 
 ## Example (as JSON)
 

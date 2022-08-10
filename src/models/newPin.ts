@@ -5,21 +5,34 @@
  */
 
 import { lazy, object, Schema, string } from '../schema';
-import { BoardOwner, boardOwnerSchema } from './boardOwner';
 import { Media, mediaSchema } from './media';
+import { Owner, ownerSchema } from './owner';
 
+/** Model to create a new pin. */
 export interface NewPin {
+  /** ID of the new pin. */
   id: string;
+  /** Timestamp at which the pin is created. */
   createdAt: string;
+  /** Link to the created pin. */
   link: string;
+  /** Title of the created pin. */
   title: string;
+  /** Describes what the pin is about. */
   description: string;
+  /** States the dominant color of the created pin. */
   dominantColor: string;
+  /** ALT text of the created pin. */
   altText: string;
+  /** This is the board ID of the board in which the pin was created. */
   boardId: string;
+  /** This is the board section ID of the parent board. */
   boardSectionId: string;
-  boardOwner: BoardOwner;
+  /** States the owner of the board in which the pin is created. */
+  boardOwner: Owner;
+  /** Defines the type of media. */
   media: Media;
+  /** This is the ID of parent pin. */
   parentPinId: string;
 }
 
@@ -33,7 +46,7 @@ export const newPinSchema: Schema<NewPin> = object({
   altText: ['alt_text', string()],
   boardId: ['board_id', string()],
   boardSectionId: ['board_section_id', string()],
-  boardOwner: ['board_owner', lazy(() => boardOwnerSchema)],
+  boardOwner: ['board_owner', lazy(() => ownerSchema)],
   media: ['media', lazy(() => mediaSchema)],
   parentPinId: ['parent_pin_id', string()],
 });
