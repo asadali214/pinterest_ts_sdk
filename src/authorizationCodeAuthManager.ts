@@ -24,7 +24,7 @@ export class AuthorizationCodeAuthManager {
     oAuthRedirectUri,
     oAuthToken,
     oAuthScopes,
-  }:{
+  }: {
     oAuthClientId: string,
     oAuthClientSecret: string,
     oAuthRedirectUri: string,
@@ -83,6 +83,9 @@ export class AuthorizationCodeAuthManager {
       this._oAuthRedirectUri,
       additionalParams
     );
+    if (typeof result.expiresIn !== 'undefined' && result.expiresIn > 0) {
+      result.expiry = (Date.now() / 1000) as unknown as bigint + result.expiresIn;
+    }
     return result;
   }
 
@@ -102,9 +105,12 @@ export class AuthorizationCodeAuthManager {
       this._oAuthScopes?.join(','),
       additionalParams
     );
+    if (typeof result.expiresIn !== 'undefined' && result.expiresIn > 0) {
+      result.expiry = (Date.now() / 1000) as unknown as bigint + result.expiresIn;
+    }
     return result;
   }
-  
+
   private getClientBasicAuth(clientId: string, clientSecret: string): string {
     return `Basic ${Buffer.from(clientId + ':' + clientSecret,).toString('base64')}`;
   }
