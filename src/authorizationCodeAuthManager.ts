@@ -84,7 +84,7 @@ export class AuthorizationCodeAuthManager {
       additionalParams
     );
     if (typeof result.expiresIn !== 'undefined' && result.expiresIn > 0) {
-      result.expiry = (Date.now() / 1000) as unknown as bigint + result.expiresIn;
+      result.expiry = (Date.now() / 1000) + result.expiresIn;
     }
     return result;
   }
@@ -106,7 +106,7 @@ export class AuthorizationCodeAuthManager {
       additionalParams
     );
     if (typeof result.expiresIn !== 'undefined' && result.expiresIn > 0) {
-      result.expiry = (Date.now() / 1000) as unknown as bigint + result.expiresIn;
+      result.expiry = (Date.now() / 1000) + result.expiresIn;
     }
     return result;
   }
